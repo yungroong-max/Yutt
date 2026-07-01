@@ -43,10 +43,15 @@ exports.handler = async () => {
   if (thai.status === 'fulfilled') merged.push(...thai.value);
   if (intl.status === 'fulfilled') merged.push(...intl.value);
 
-  // กันข่าวซ้ำด้วย link
+  // กรองสแปม/พนัน + กันข่าวซ้ำ
+  const BLOCK = /đá gà|nổ hũ|cựa dao|tài xỉu|neko|casino|slot|jackpot|bắn cá|game bài/i;
+  const BLOCK_SRC = new Set(['elakhbar']);
   const seen = new Set();
   const results = merged.filter((a) => {
-    const k = a.link || a.article_id || a.title;
+    const title = a.title || '';
+    if (BLOCK.test(title)) return false;
+    if (BLOCK_SRC.has((a.source_name || '').toLowerCase().trim())) return false;
+    const k = a.link || a.article_id || title;
     if (seen.has(k)) return false;
     seen.add(k);
     return true;
