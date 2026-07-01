@@ -1,0 +1,7 @@
+# Netlify config — เว็บสถิต + serverless function สำหรับผลกีฬาสด
+[build]
+  publish = "."
+  functions = "netlify/functions"
+
+[functions]
+  node_bundler = "esbuild"

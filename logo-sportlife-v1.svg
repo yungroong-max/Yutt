@@ -1,0 +1,52 @@
+<svg width="520" height="200" viewBox="0 0 520 200" xmlns="http://www.w3.org/2000/svg" font-family="'Poppins','Segoe UI',sans-serif">
+  <defs>
+    <linearGradient id="sport" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2E6FF2"/>
+      <stop offset="0.5" stop-color="#16B488"/>
+      <stop offset="1" stop-color="#FF5C8A"/>
+    </linearGradient>
+  </defs>
+
+  <!-- ICON: friendly glasses whose lenses are sports balls -->
+  <g transform="translate(20,28)">
+    <!-- temple arms + bridge -->
+    <path d="M28 66 Q15 60 6 70" fill="none" stroke="#1F3A5F" stroke-width="9" stroke-linecap="round"/>
+    <path d="M152 66 Q165 60 174 70" fill="none" stroke="#1F3A5F" stroke-width="9" stroke-linecap="round"/>
+    <path d="M72 60 Q90 48 108 60" fill="none" stroke="#1F3A5F" stroke-width="9" stroke-linecap="round"/>
+
+    <!-- LEFT lens = basketball (pink) -->
+    <circle cx="50" cy="74" r="42" fill="#FF5C8A"/>
+    <g stroke="#ffffff" stroke-width="4" fill="none" stroke-linecap="round">
+      <path d="M10 74 H90"/>
+      <path d="M50 33 V115"/>
+      <path d="M20 42 Q50 74 20 106"/>
+      <path d="M80 42 Q50 74 80 106"/>
+    </g>
+    <circle cx="50" cy="74" r="42" fill="none" stroke="#1F3A5F" stroke-width="9"/>
+
+    <!-- RIGHT lens = soccer ball (blue) -->
+    <circle cx="130" cy="74" r="42" fill="#2E6FF2"/>
+    <g fill="#ffffff">
+      <polygon points="130,58 142,67 137,81 123,81 118,67"/>
+      <polygon points="130,40 138,52 130,58 122,52"/>
+      <polygon points="160,62 166,76 156,84 148,74"/>
+      <polygon points="100,62 112,74 104,84 94,76"/>
+      <polygon points="118,98 130,92 142,98 137,108 123,108"/>
+    </g>
+    <circle cx="130" cy="74" r="42" fill="none" stroke="#1F3A5F" stroke-width="9"/>
+
+    <!-- bouncing ball 1 = tennis (green) -->
+    <circle cx="14" cy="18" r="13" fill="#16B488"/>
+    <path d="M3 12 Q14 18 3 24 M25 12 Q14 18 25 24" fill="none" stroke="#ffffff" stroke-width="2.5"/>
+
+    <!-- bouncing ball 2 = volleyball (light + blue) -->
+    <circle cx="168" cy="22" r="12" fill="#EAF1FF"/>
+    <path d="M168 10 V34 M157 16 Q168 22 179 16 M157 28 Q168 22 179 28" fill="none" stroke="#2E6FF2" stroke-width="2.5"/>
+  </g>
+
+  <!-- WORDMARK -->
+  <text x="225" y="108" font-size="56" font-weight="800" letter-spacing="-1">
+    <tspan fill="#1F3A5F">Sport</tspan><tspan fill="url(#sport)">life</tspan>
+  </text>
+  <text x="227" y="140" font-size="17" font-weight="600" letter-spacing="3" fill="#16B488">ข่าวกีฬาในกระแสของคนไทย</text>
+</svg>

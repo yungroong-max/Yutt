@@ -1,0 +1,65 @@
+<svg width="240" height="240" viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="iFoot" cx="38%" cy="32%" r="75%"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#cfd6e0"/></radialGradient>
+    <radialGradient id="iBask" cx="36%" cy="30%" r="80%"><stop offset="0" stop-color="#F7A24B"/><stop offset="1" stop-color="#C2540F"/></radialGradient>
+    <radialGradient id="iTen" cx="36%" cy="30%" r="80%"><stop offset="0" stop-color="#E4F75A"/><stop offset="1" stop-color="#9FC014"/></radialGradient>
+    <radialGradient id="iVol" cx="38%" cy="30%" r="80%"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#d7e2f3"/></radialGradient>
+    <radialGradient id="iCork" cx="40%" cy="30%" r="80%"><stop offset="0" stop-color="#FCEBC4"/><stop offset="1" stop-color="#E0B775"/></radialGradient>
+    <linearGradient id="iBg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2E6FF2"/><stop offset="0.55" stop-color="#16B488"/><stop offset="1" stop-color="#FF5C8A"/></linearGradient>
+  </defs>
+
+  <!-- badge background -->
+  <rect x="6" y="6" width="228" height="228" rx="52" fill="url(#iBg)"/>
+  <rect x="6" y="6" width="228" height="228" rx="52" fill="#ffffff" opacity="0.10"/>
+  <circle cx="120" cy="116" r="92" fill="#ffffff"/>
+
+  <g transform="translate(120,116)">
+    <!-- arc of 5 balls -->
+    <g transform="translate(-78,-12) rotate(-28)">
+      <path d="M0 5 L-13 -28 Q0 -35 13 -28 Z" fill="#ffffff" stroke="#c4ccd8" stroke-width="1.2"/>
+      <path d="M-7 -8 L-10 -27 M0 -11 L0 -30 M7 -8 L10 -27" stroke="#c4ccd8" stroke-width="1.2"/>
+      <circle cx="0" cy="7" r="8" fill="url(#iCork)" stroke="#c89b54" stroke-width="1"/>
+    </g>
+    <g transform="translate(-40,-40)">
+      <circle r="21" fill="url(#iTen)"/>
+      <path d="M-21 -5 Q-5 -16 -2 21 M21 5 Q5 16 2 -21" fill="none" stroke="#fff" stroke-width="2.4"/>
+      <ellipse cx="-7" cy="-8" rx="7" ry="4" fill="#fff" opacity="0.35"/>
+    </g>
+    <g transform="translate(0,-50)">
+      <circle r="23" fill="url(#iFoot)"/>
+      <g fill="#1a2230">
+        <polygon points="0,-8 8,-2 5,8 -5,8 -8,-2"/>
+        <polygon points="0,-23 6,-18 0,-11 -6,-18"/>
+        <polygon points="21,-8 17,1 9,-3 11,-12"/>
+        <polygon points="-21,-8 -11,-12 -9,-3 -17,1"/>
+        <polygon points="-13,21 -5,11 5,11 13,21"/>
+      </g>
+      <ellipse cx="-8" cy="-10" rx="7" ry="4" fill="#fff" opacity="0.5"/>
+    </g>
+    <g transform="translate(40,-40)">
+      <circle r="21" fill="url(#iVol)"/>
+      <g fill="none" stroke="#2E6FF2" stroke-width="2.2">
+        <path d="M-21 -3 Q-2 -7 5 -21"/><path d="M-17 12 Q-3 2 21 5"/><path d="M2 21 Q7 4 -7 -19"/>
+      </g>
+      <ellipse cx="-7" cy="-8" rx="6" ry="4" fill="#fff" opacity="0.45"/>
+    </g>
+    <g transform="translate(78,-12)">
+      <circle r="21" fill="url(#iBask)"/>
+      <g fill="none" stroke="#5a2606" stroke-width="2">
+        <path d="M0 -21 V21"/><path d="M-21 0 H21"/><path d="M-15 -15 Q0 0 -15 15"/><path d="M15 -15 Q0 0 15 15"/>
+      </g>
+      <ellipse cx="-7" cy="-8" rx="6" ry="4" fill="#fff" opacity="0.25"/>
+    </g>
+
+    <!-- glasses -->
+    <g transform="translate(0,40)">
+      <path d="M-58 4 Q-72 -2 -82 8" fill="none" stroke="#1F3A5F" stroke-width="9" stroke-linecap="round"/>
+      <path d="M58 4 Q72 -2 82 8" fill="none" stroke="#1F3A5F" stroke-width="9" stroke-linecap="round"/>
+      <path d="M-18 0 Q0 -14 18 0" fill="none" stroke="#1F3A5F" stroke-width="9" stroke-linecap="round"/>
+      <circle cx="-34" cy="16" r="32" fill="#eaf1ff" fill-opacity="0.7" stroke="#1F3A5F" stroke-width="9"/>
+      <circle cx="34" cy="16" r="32" fill="#eaf1ff" fill-opacity="0.7" stroke="#1F3A5F" stroke-width="9"/>
+      <path d="M-50 2 Q-54 16 -44 30" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" opacity="0.7"/>
+      <path d="M18 2 Q14 16 24 30" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" opacity="0.7"/>
+    </g>
+  </g>
+</svg>
