@@ -48,7 +48,8 @@ exports.handler = async () => {
   const BLOCK_SRC = new Set(['elakhbar', 'asiannews']);
   const seen = new Set();
   const results = merged.filter((a) => {
-    const title = a.title || '';
+    const title = (a.title || '').trim();
+    if (!title) return false;            // ตัดข่าวที่ไม่มีหัวข้อ
     if (BLOCK.test(title)) return false;
     if (BLOCK_SRC.has((a.source_name || '').toLowerCase().trim())) return false;
     const k = a.link || a.article_id || title;
