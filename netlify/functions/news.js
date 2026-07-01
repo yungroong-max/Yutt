@@ -8,13 +8,10 @@ const BASE = 'https://newsdata.io/api/1/latest';
 const TTL_MS = 10 * 60 * 1000;
 let CACHE = { at: 0, data: null };
 
-// คีย์เวิร์ดกีฬาระดับสากลที่คนไทยติดตาม
-const INTL_TH = encodeURIComponent(
-  'พรีเมียร์ลีก OR แชมเปียนส์ลีก OR ลาลีกา OR เอ็นบีเอ OR โอลิมปิก OR เทนนิส OR วอลเลย์บอลโลก OR ฟอร์มูล่าวัน'
-);
-const INTL_EN = encodeURIComponent(
-  'Premier League OR Champions League OR LaLiga OR NBA OR Formula 1 OR Wimbledon OR volleyball'
-);
+// ข่าวกีฬาภาษาไทย (สื่อไทยเน้นโคฟเวอร์กีฬาต่างประเทศเป็นหลักอยู่แล้ว อ่านง่าย)
+const TH_QS = 'category=sports&language=th&size=10';
+// ข่าวกีฬาสากลจากสำนักข่าวชั้นนำ (กรองด้วยโดเมนเพื่อความน่าเชื่อถือ ลดข่าวนอกเรื่อง)
+const EN_QS = 'category=sports&language=en&domainurl=bbc.com,espn.com,skysports.com,goal.com&size=6';
 
 async function fetchNews(qs) {
   const res = await fetch(`${BASE}?apikey=${KEY}&${qs}`);
@@ -37,8 +34,8 @@ exports.handler = async () => {
   }
 
   const [thai, intl] = await Promise.allSettled([
-    fetchNews(`category=sports&language=th&q=${INTL_TH}&size=10`),
-    fetchNews(`category=sports&language=en&q=${INTL_EN}&size=10`),
+    fetchNews(TH_QS),
+    fetchNews(EN_QS),
   ]);
 
   const merged = [];
