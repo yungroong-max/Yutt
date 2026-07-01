@@ -44,8 +44,8 @@ exports.handler = async () => {
   if (intl.status === 'fulfilled') merged.push(...intl.value);
 
   // กรองสแปม/พนัน + กันข่าวซ้ำ
-  const BLOCK = /đá gà|nổ hũ|cựa dao|tài xỉu|neko|casino|slot|jackpot|bắn cá|game bài/i;
-  const BLOCK_SRC = new Set(['elakhbar']);
+  const BLOCK = /đá gà|nổ hũ|cựa dao|tài xỉu|neko|casino|slot|jackpot|bắn cá|game bài|สล็อต|พนัน|บาคาร่า|คาสิโน|เดิมพัน|แทงบอล|เว็บพนัน|หวย|ยิงปลา/i;
+  const BLOCK_SRC = new Set(['elakhbar', 'asiannews']);
   const seen = new Set();
   const results = merged.filter((a) => {
     const title = a.title || '';
