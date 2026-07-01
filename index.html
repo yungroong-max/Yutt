@@ -3,15 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Sportlife - อัพเดตข่าวกีฬาล่าสุดทุกวัน ฟุตบอล มวย แบดมินตัน เทนนิส บาสเกตบอล และอีกมากมาย">
+<meta name="description" content="Sportlife - อัพเดตข่าวกีฬาสากลและผลการแข่งขันสด ฟุตบอล บาสเกตบอล แบดมินตัน วอลเลย์บอล เทนนิส">
 <meta property="og:title" content="Sportlife — อัพเดตข่าวกีฬา">
-<meta property="og:description" content="ข่าวสารกีฬาทั้งไทยและเทศ แปลอัตโนมัติด้วย AI">
+<meta property="og:description" content="ข่าวกีฬาสากลและผลการแข่งขันสด อัปเดตทุกวัน">
 <meta property="og:image" content="logo-sportlife-icon.svg">
 <title>Sportlife — อัพเดตข่าวกีฬา</title>
 <link rel="icon" type="image/svg+xml" href="logo-sportlife-icon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600;700;800&family=Teko:wght@500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=2">
+<link rel="stylesheet" href="css/style.css?v=4">
 </head>
 <body>
 
@@ -28,19 +28,17 @@
     <div class="live-badge"><div class="live-dot"></div>LIVE</div>
     <div class="header-right">
       <div class="date-display" id="dateDisplay"></div>
-      <button class="refresh-btn" onclick="document.getElementById('setupBanner').classList.remove('hidden');document.getElementById('setupBanner').scrollIntoView({behavior:'smooth'});">🔑 API Key</button>
       <button class="refresh-btn" onclick="refreshAll()" id="refreshBtn">🔄 รีเฟรช</button>
     </div>
   </div>
   <nav class="nav-tabs">
     <button class="tab-btn active" data-sport="all">🏆 ทั้งหมด</button>
     <button class="tab-btn" data-sport="football">⚽ ฟุตบอล</button>
-    <button class="tab-btn" data-sport="boxing">🥊 มวย</button>
-    <button class="tab-btn" data-sport="badminton">🏸 แบดมินตัน</button>
     <button class="tab-btn" data-sport="basketball">🏀 บาสเกตบอล</button>
+    <button class="tab-btn" data-sport="badminton">🏸 แบดมินตัน</button>
+    <button class="tab-btn" data-sport="volleyball">🏐 วอลเลย์บอล</button>
     <button class="tab-btn" data-sport="tennis">🎾 เทนนิส</button>
     <button class="tab-btn" data-sport="motorsport">🏎️ F1</button>
-    <button class="tab-btn" data-sport="mma">🥋 MMA</button>
   </nav>
 </header>
 
@@ -55,52 +53,6 @@
 <!-- ── MAIN ── -->
 <div class="main-container">
   <main>
-    <!-- API KEY SETUP BANNER -->
-    <div id="setupBanner" class="setup-banner">
-      <div class="setup-icon">🔑</div>
-      <div class="setup-text">
-        <strong>ตั้งค่า API Key เพื่อดึงข่าวจริง</strong>
-        <p>กรอก NewsData.io API Key ด้านล่าง (ฟรี 200 requests/วัน) หรือใช้โหมด AI สร้างข่าว</p>
-      </div>
-      <div class="setup-inputs">
-        <input type="text" id="newsApiKey" placeholder="NewsData.io API Key (pub_xxxxx)" class="api-input">
-        <input type="text" id="claudeApiKey" placeholder="Anthropic API Key (sk-ant-xxxxx)" class="api-input">
-        <button onclick="saveKeys()" class="btn-save">💾 บันทึก & โหลดข่าว</button>
-      </div>
-      <div class="setup-links">
-        <a href="https://newsdata.io/register" target="_blank">📝 สมัคร NewsData.io ฟรี</a>
-        <a href="https://console.anthropic.com" target="_blank">🤖 รับ Anthropic API Key</a>
-      </div>
-    </div>
-
-    <!-- AI PANEL -->
-    <div class="ai-panel">
-      <div class="ai-header">
-        <span class="ai-hero-icon">🤖</span>
-        <div>
-          <div class="ai-title">AI วิเคราะห์กีฬา</div>
-          <div class="ai-sub">ถามเรื่องกีฬาใดก็ได้ — วิเคราะห์ แปลข่าว ทำนายผล</div>
-        </div>
-        <div class="ai-badge">AI POWERED</div>
-      </div>
-      <div class="ai-body">
-        <div class="topic-chips">
-          <span class="chip" data-query="วิเคราะห์ฟอร์มทีมชาติไทยในการแข่งขัน AFF Championship ล่าสุด">🇹🇭 ทีมชาติไทย</span>
-          <span class="chip" data-query="สรุปผลและวิเคราะห์การแข่งขันพรีเมียร์ลีกสัปดาห์ล่าสุด">⚽ พรีเมียร์ลีก</span>
-          <span class="chip" data-query="อัพเดทข่าวมวยไทยและนักมวยไทยในเวทีโลก">🥊 มวยไทย</span>
-          <span class="chip" data-query="ผลงานนักแบดมินตันไทยในทัวร์นาเมนต์ BWF ล่าสุด">🏸 แบดมินตัน</span>
-          <span class="chip" data-query="วิเคราะห์ฤดูกาล F1 2025 ผู้นำแชมป์และสรุปผลล่าสุด">🏎️ Formula 1</span>
-          <span class="chip" data-query="ข่าวย้ายทีมนักฟุตบอลที่น่าสนใจล่าสุด">🔄 ข่าวย้ายทีม</span>
-        </div>
-        <div class="search-row">
-          <input class="search-input" id="aiInput" type="text" placeholder="ถามเรื่องกีฬาที่คุณสนใจ...">
-          <button class="btn-primary" id="askBtn" onclick="askAI()">🔍 วิเคราะห์</button>
-        </div>
-      </div>
-      <div class="ai-result" id="aiResult"></div>
-    </div>
-
-    <!-- FEATURED -->
     <h2 class="section-title"><span class="section-accent">📰</span> ข่าวเด่นวันนี้</h2>
     <div class="featured-grid" id="featuredGrid">
       <div class="skeleton-featured"></div>
@@ -108,24 +60,17 @@
       <div class="skeleton-card"></div>
     </div>
 
-    <!-- NEWS LIST -->
-    <h2 class="section-title"><span class="section-accent">📋</span> ข่าวทั้งหมด</h2>
+    <h2 class="section-title"><span class="section-accent">📋</span> ข่าวกีฬาสากล</h2>
     <div class="news-list" id="newsList">
       <div class="skeleton-news"></div>
       <div class="skeleton-news"></div>
       <div class="skeleton-news"></div>
     </div>
-
-    <div class="load-more-wrap">
-      <button class="btn-load-more" id="loadMoreBtn" onclick="loadMoreNews()" style="display:none">
-        โหลดเพิ่มเติม ▼
-      </button>
-    </div>
   </main>
 
   <!-- SIDEBAR -->
   <aside class="sidebar">
-    <div class="widget">
+    <div class="widget widget-scores">
       <div class="widget-header"><span>🔴</span> ผลการแข่งขัน</div>
       <div id="scoresWidget"><div class="widget-loading"><div class="spinner"></div></div></div>
     </div>
@@ -133,20 +78,14 @@
       <div class="widget-header"><span>🔥</span> กระแสร้อนแรง</div>
       <div id="trendingWidget"><div class="widget-loading"><div class="spinner"></div></div></div>
     </div>
-    <div class="widget">
-      <div class="widget-header"><span>🇹🇭</span> นักกีฬาไทยในเวทีโลก</div>
-      <div id="thaiWidget"><div class="widget-loading"><div class="spinner"></div></div></div>
-    </div>
     <div class="widget source-widget">
       <div class="widget-header"><span>📡</span> แหล่งข่าว</div>
       <div class="source-list">
-        <div class="source-item"><span class="src-dot active"></span>NewsData.io <span class="src-status" id="srcStatus">รอ API Key</span></div>
+        <div class="source-item"><span class="src-dot active"></span>NewsData.io</div>
         <div class="source-item"><span class="src-dot active"></span>BBC Sport</div>
         <div class="source-item"><span class="src-dot active"></span>ESPN</div>
-        <div class="source-item"><span class="src-dot active"></span>Goal.com</div>
-        <div class="source-item"><span class="src-dot active"></span>Siamsport (ไทย)</div>
-        <div class="source-item"><span class="src-dot active"></span>Thaisport.net</div>
-        <div class="source-item"><span class="src-dot ai"></span>Claude AI (สำรอง)</div>
+        <div class="source-item"><span class="src-dot active"></span>Sky Sports</div>
+        <div class="source-item"><span class="src-dot active"></span>API-Sports (ผลสด)</div>
       </div>
     </div>
   </aside>
@@ -162,13 +101,13 @@
 
 <footer>
   <div class="footer-logo"><img src="logo-sportlife-icon.svg" class="footer-logo-icon" alt="Sportlife">SPORTLIFE</div>
-  <div class="footer-desc">ข่าวกีฬาจากสื่อไทยและต่างประเทศ แปลอัตโนมัติด้วย AI • อัปเดตทุก 10 นาที</div>
+  <div class="footer-desc">ข่าวกีฬาสากลและผลการแข่งขันสด • อัปเดตทุก 10 นาที</div>
   <div class="footer-links">
     <a href="#">หน้าแรก</a><a href="#">เกี่ยวกับเรา</a><a href="#">ติดต่อ</a>
   </div>
-  <div class="footer-copy">© 2026 Sportlife · ข้อมูลอ้างอิงจาก NewsData.io, BBC Sport, ESPN และสื่อชั้นนำ</div>
+  <div class="footer-copy">© 2026 Sportlife · ข้อมูลอ้างอิงจาก NewsData.io, API-Sports, BBC Sport, ESPN และสื่อชั้นนำ</div>
 </footer>
 
-<script src="js/app.js?v=3"></script>
+<script src="js/app.js?v=4"></script>
 </body>
 </html>
